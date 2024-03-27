@@ -4,16 +4,12 @@ using UnityEngine;
 using Photon.Pun;
 public class Bullet : MonoBehaviour
 {
+    [SerializeField]private GameObject bulleteffect;
+    [Space]
     public float damage;
-    private float destroyTime = 2f;
-    private float timer;
-    private void Update()
+    private void Start()
     {
-        timer += Time.deltaTime;
-        if(timer >= destroyTime)
-        {
-            Destroy(gameObject);
-        }
+        DestroyObject(gameObject);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -25,5 +21,16 @@ public class Bullet : MonoBehaviour
                 Debug.Log("Enemy Damage Yedi");
             }
         }
+        else if(other.gameObject != null)
+        {
+            var effect = PhotonNetwork.Instantiate(bulleteffect.name, other.transform.position, Quaternion.identity);
+            effect.transform.SetParent(other.transform);
+            Debug.Log(other.name + ": buraya çarptý");
+        }
+    }
+
+    void DestroyObject(GameObject objects)
+    {
+        Destroy(objects, 2f);
     }
 }

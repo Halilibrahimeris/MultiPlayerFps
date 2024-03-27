@@ -608,12 +608,13 @@ MonoBehaviour:
   MuzzleEffect: {fileID: 0}
   BulletsPerBurst: 3
   BurstBulletLeft: 0
-  SpreadIntensity: 5
+  SpreadIntensity: 0
   BulletsPrefab: {fileID: 4657965028377666754, guid: 61f0b580f212c594ab3744c432dd57d1,
     type: 3}
   BulletSpawn: {fileID: 85216944353756976}
-  BulletVelocity: 100
+  BulletVelocity: 1000
   BulletDamage: 25
+  ReloadAnim: {fileID: 7400000, guid: 7b535f5f5793e9741a73a585ed6958e9, type: 3}
   ReloadTime: 0.3
   MagazineSize: 120
   BulletsLeft: 30
@@ -976,7 +977,7 @@ GameObject:
   - component: {fileID: 8543906401649129409}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

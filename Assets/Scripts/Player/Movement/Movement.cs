@@ -19,7 +19,6 @@ public class Movement : MonoBehaviour
     private bool sprinting;
     private bool jumping;
     private bool grounded;
-
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -45,19 +44,19 @@ public class Movement : MonoBehaviour
             if (jumping)
             {
                 _rb.velocity = new Vector3(_rb.velocity.x, JumpPower, _rb.velocity.z);
-                Weapon.SpreadIntensity = 15;
+                //Weapon.SpreadIntensity = 7f;
             }
             else if (input.magnitude > 0.5f)
             {
                 _rb.AddForce(CalculateMovement(sprinting ? SprintSpeed : WalkSpeed), ForceMode.VelocityChange);
-                Weapon.SpreadIntensity = 8;
+                //Weapon.SpreadIntensity = 4f;
             }
             else
             {
                 var velocity1 = _rb.velocity;
                 velocity1 = new Vector3(velocity1.x * 0.2f * Time.deltaTime, velocity1.y, velocity1.z * 0.2f * Time.deltaTime);
                 _rb.velocity = velocity1;
-                Weapon.SpreadIntensity = 5;
+                //Weapon.SpreadIntensity = 2.5f;
             }
         }
         else
@@ -65,21 +64,21 @@ public class Movement : MonoBehaviour
             if (input.magnitude > 0.5f)
             {
                 _rb.AddForce(CalculateMovement(sprinting ? SprintSpeed * AirControl : WalkSpeed * AirControl), ForceMode.VelocityChange);
-                Weapon.SpreadIntensity = 20;
+               // Weapon.SpreadIntensity = 10f;
             }
             else
             {
                 var velocity1 = _rb.velocity;
                 velocity1 = new Vector3(velocity1.x * 0.2f * Time.deltaTime, velocity1.y, velocity1.z * 0.2f * Time.deltaTime);
                 _rb.velocity = velocity1;
-                Weapon.SpreadIntensity = 15;
+                //Weapon.SpreadIntensity = 7.5f;
             }
         }
 
         grounded = false;
     }
 
-    Vector3 CalculateMovement(float _speed)
+    public Vector3 CalculateMovement(float _speed)
     {
         Vector3 targetVelocity = new Vector3(input.x, 0, input.y);
         targetVelocity = transform.TransformDirection(targetVelocity);

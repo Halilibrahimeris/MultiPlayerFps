@@ -36,6 +36,7 @@ public class Weapon : MonoBehaviour
     public float BulletDamage;
     #endregion
     #region Reload
+    public AnimationClip ReloadAnim;
     public float ReloadTime;//yeniden doldurma süresi
     public int MagazineSize, BulletsLeft, MaxBulletsLeft;//þarjör kapasitesi, kalan mermi sayýsý ve silahýn alabileceði max mermi
     public bool isReloading;
@@ -56,6 +57,7 @@ public class Weapon : MonoBehaviour
         source = GetComponent<AudioSource>();
         _anim = GetComponent<Animator>();
         _anim.SetBool("isReloading", false);
+        ReloadTime = ReloadAnim.length;
     }
     void Update()
     {
@@ -104,12 +106,14 @@ public class Weapon : MonoBehaviour
             Debug.Log("Aim e girdi");
             if (isAiming)
             {
+                BulletSpawn.transform.localPosition = new Vector3(0.123f, 1.539f, 0.991f);
                 Debug.Log("Aim 1");
                 isAiming = false;
                 _anim.SetBool("Aim", false);
             }
             else
             {
+                BulletSpawn.transform.localPosition = new Vector3(0f, 1.539f, 0.991f);
                 Debug.Log("Aim 2");
                 isAiming = true;
                 _anim.SetBool("Aim", true);
