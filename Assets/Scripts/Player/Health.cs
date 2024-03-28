@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
 {
     public float HP;
     public TextMeshProUGUI HealthText;
+    public bool isLocalPlayer;
     private void Start()
     {
         HealthText.text = HP.ToString();
@@ -17,9 +18,10 @@ public class Health : MonoBehaviour
         HP -= Damage;
         if(HP<= 0)
         {
-            //die
+            if (isLocalPlayer)
+                RoomManager.instance.RespawnPlayer();
+
             Destroy(gameObject);
-            Debug.Log(HP);
         }
         HealthText.text = HP.ToString();
     }

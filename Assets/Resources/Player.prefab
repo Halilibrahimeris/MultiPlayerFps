@@ -1256,6 +1256,7 @@ GameObject:
   - component: {fileID: 3114289360815278286}
   - component: {fileID: 785210910287434803}
   - component: {fileID: 4875459077830357755}
+  - component: {fileID: 6747970786940832483}
   m_Layer: 0
   m_Name: Hands_Automatic_rifle
   m_TagString: Untagged
@@ -1349,6 +1350,20 @@ MonoBehaviour:
   MaxBulletsLeft: 30
   isReloading: 0
   CurrentShootingMode: 2
+--- !u!114 &6747970786940832483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2264845809679943497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1329e64594b6294f81b4a002cd48fb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SwayClamp: 0.05
+  Smoothing: 3
 --- !u!1 &2271677226271361468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,6 +1856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 100
   HealthText: {fileID: 8496387872424727271}
+  isLocalPlayer: 0
 --- !u!114 &4359317769906248238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1854,6 +1870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveScript: {fileID: 1974764139246728340}
+  HealthScript: {fileID: 6107869977576614476}
   Camera: {fileID: 6652547988134080770}
   Arm: {fileID: 9156901679152772228}
 --- !u!114 &5927609172955748459

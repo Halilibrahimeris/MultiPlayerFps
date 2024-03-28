@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSetUp : MonoBehaviour
 {
     public Movement MoveScript;
-
+    public Health HealthScript;
     public GameObject Camera;
     public GameObject Arm;
 
@@ -14,5 +14,6 @@ public class PlayerSetUp : MonoBehaviour
         Arm.SetActive(false);
         MoveScript.enabled = true;
         Camera.SetActive(true);
+        HealthScript.isLocalPlayer = true;
     }
 }
