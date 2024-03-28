@@ -17,16 +17,18 @@ public class Bullet : MonoBehaviour
         {
             IDamageable.Type typ = damageObject.SetType();
             CreateBulletImpactEffect(collision, typ);
+            Destroy(gameObject);
         }
         if (collision.transform.gameObject.GetComponent<Health>())
         {
+
             if (collision.gameObject.TryGetComponent<PhotonView>(out PhotonView player))
             {
                 player.RPC("TakeDamage", RpcTarget.All, damage);
                 Debug.Log("Enemy Damage Yedi");
+                Destroy(gameObject);
             }
         }
-        Destroy(gameObject);
     }
 
     private void CreateBulletImpactEffect(Collision ObjectWeHit, IDamageable.Type type)//Merminin denk geldiði yere mermi izi efekti ekleniyor

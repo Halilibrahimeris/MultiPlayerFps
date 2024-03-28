@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6377036760790148154}
   - component: {fileID: 6377036760791148282}
   - component: {fileID: 6377036760784014330}
-  - component: {fileID: 3547934634271714212}
   - component: {fileID: 8298057827664028142}
+  - component: {fileID: 468360235677073933}
   m_Layer: 0
   m_Name: Pallette Box
   m_TagString: Envoriment
@@ -109,8 +109,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!65 &3547934634271714212
-BoxCollider:
+--- !u!114 &8298057827664028142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6377036760793413690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac330de6e4d99cb45b5f0b337429ab5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+--- !u!64 &468360235677073933
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -127,19 +140,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.58847135, y: 0.5617561, z: 0.45835006}
-  m_Center: {x: -0.0037648657, y: 0.002989858, z: 0.2291359}
---- !u!114 &8298057827664028142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6377036760793413690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac330de6e4d99cb45b5f0b337429ab5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: c678a58bf44cb43e68f04d4a02876df6, type: 3}

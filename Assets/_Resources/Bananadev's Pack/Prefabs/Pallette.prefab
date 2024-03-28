@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 5692596246866381344}
   - component: {fileID: 5692596246863481344}
   - component: {fileID: 5692596246864480448}
-  - component: {fileID: 5692596246874138048}
-  - component: {fileID: 2961406756996200436}
   - component: {fileID: 8247617244946471031}
+  - component: {fileID: 8007880470980759594}
   m_Layer: 0
   m_Name: Pallette
   m_TagString: Envoriment
@@ -86,29 +85,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &5692596246874138048
-Animator:
-  serializedVersion: 5
+--- !u!114 &8247617244946471031
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5692596246866744832}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 4e4b928c5837943f4a5e43f487fe9b65, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!65 &2961406756996200436
-BoxCollider:
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac330de6e4d99cb45b5f0b337429ab5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+--- !u!64 &8007880470980759594
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -125,19 +116,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.49413967, y: 0.5300155, z: 0.056466576}
-  m_Center: {x: -0.000014692545, y: -0.000011920931, z: 0.00018783845}
---- !u!114 &8247617244946471031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692596246866744832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac330de6e4d99cb45b5f0b337429ab5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 4e4b928c5837943f4a5e43f487fe9b65, type: 3}
