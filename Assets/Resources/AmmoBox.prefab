@@ -150,6 +150,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 460558, guid: 8763502436213a942851460236cd07e4, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9594776, guid: 8763502436213a942851460236cd07e4, type: 3}
     m_RemovedGameObjects: []
@@ -163,6 +167,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7136497486545379919}
+    - targetCorrespondingSourceObject: {fileID: 103226, guid: 8763502436213a942851460236cd07e4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6647708951659159506}
+    - targetCorrespondingSourceObject: {fileID: 103226, guid: 8763502436213a942851460236cd07e4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3846878179663383786}
   m_SourcePrefab: {fileID: 100100000, guid: 8763502436213a942851460236cd07e4, type: 3}
 --- !u!1 &791307503838313464 stripped
 GameObject:
@@ -206,6 +218,45 @@ MonoBehaviour:
   isActive: 0
   rotationSpeed: 30
   isAmmo: 1
+--- !u!114 &6647708951659159506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791307503838313464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 3846878179663383786}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &3846878179663383786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791307503838313464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!4 &791307503838474188 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 460558, guid: 8763502436213a942851460236cd07e4,

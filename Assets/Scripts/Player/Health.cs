@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
         if(HP<= 0)
         {
             if (isLocalPlayer)
-                RoomManager.instance.RespawnPlayer();
+                RoomManager.instance.SpawnPlayer();
 
             Destroy(gameObject);
         }

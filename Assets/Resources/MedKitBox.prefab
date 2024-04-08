@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140157219906009715}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.3867946, z: -0, w: 0.92216593}
+  m_LocalRotation: {x: 0, y: -0.3867915, z: 0, w: 0.92216724}
   m_LocalPosition: {x: -8.218, y: 0.502, z: 1.868}
   m_LocalScale: {x: 3.6075, y: 3.6075, z: 3.6075}
   m_ConstrainProportionsScale: 0
@@ -179,7 +179,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3599300100700812946}
   - component: {fileID: 4323698018973037180}
-  - component: {fileID: 1398548613299398740}
+  - component: {fileID: 3897307340882144489}
+  - component: {fileID: 1027007686469898265}
+  - component: {fileID: 1212932529432405969}
   m_Layer: 0
   m_Name: pbr_box_med
   m_TagString: Untagged
@@ -225,7 +227,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.55, y: 0.5, z: 1.13}
   m_Center: {x: 0, y: 0.15, z: 0}
---- !u!114 &1398548613299398740
+--- !u!114 &3897307340882144489
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -234,12 +236,50 @@ MonoBehaviour:
   m_GameObject: {fileID: 3411089774739097491}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0637af042e1c23a439807fddc322cbbd, type: 3}
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 1027007686469898265}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &1027007686469898265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3411089774739097491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
+--- !u!114 &1212932529432405969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3411089774739097491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7847321f54fb64f87bda53d95503e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
   rotationSpeed: 30
-  isAmmo: 0
 --- !u!1 &7411684720732626593
 GameObject:
   m_ObjectHideFlags: 0

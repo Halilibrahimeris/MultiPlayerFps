@@ -6,10 +6,9 @@ public class Bullet : MonoBehaviour
 {
     private void Start()
     {
-        Destroy(gameObject, 4f);
+        Destroy(gameObject, 3f);
     }
-    public GameObject[] bulletImpactEffectPrefab = new GameObject[3];
-    public float damage;
+    [HideInInspector]public float damage;
     private void OnCollisionEnter(Collision collision)//çarptýþtýðý durumu kontrol eden fonksiyon
     {
         IDamageable damageObject = collision.gameObject.GetComponent<IDamageable>();
@@ -24,7 +23,7 @@ public class Bullet : MonoBehaviour
 
             if (collision.gameObject.TryGetComponent<PhotonView>(out PhotonView player))
             {
-                player.RPC("TakeDamage", RpcTarget.All, damage);
+                player.RPC("TakeDamage", RpcTarget.Others, damage);
                 Debug.Log("Enemy Damage Yedi");
                 Destroy(gameObject);
             }
@@ -50,7 +49,7 @@ public class Bullet : MonoBehaviour
 
     private void CreateHole(ContactPoint contact,int id)
     {
-        GameObject hole = PhotonNetwork.Instantiate(bulletImpactEffectPrefab[id].name, contact.point, Quaternion.LookRotation(contact.normal));//temas ettiði noktaya mermi izini spawnlýyor
+        GameObject hole = PhotonNetwork.Instantiate(PublicVariable.instance.bulletImpactEffectPrefab[id].name, contact.point, Quaternion.LookRotation(contact.normal));//temas ettiði noktaya mermi izini spawnlýyor
 
         Destroy(hole, 2f); //mermi izi 2 saniye sonra siliniyor
     }

@@ -41,6 +41,9 @@ MonoBehaviour:
   - RespawnSpaceship
   - TakeDamage
   - PlayMuzzle
+  - SetNickName
+  - RefreshAmmo
+  - RefreshAmmo_
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

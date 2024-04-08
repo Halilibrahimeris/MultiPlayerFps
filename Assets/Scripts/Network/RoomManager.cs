@@ -6,11 +6,6 @@ using Photon.Pun;
 public class RoomManager : MonoBehaviourPunCallbacks
 {
     public static RoomManager instance;
-    private void Awake()
-    {
-        instance = this;
-
-    }
 
     public GameObject Player;
 
@@ -20,7 +15,15 @@ public class RoomManager : MonoBehaviourPunCallbacks
     [Space]
     public GameObject RoomCam;
 
-    void Start()
+    private string nickname = "Unknown";
+
+    private void Awake()
+    {
+        instance = this;
+
+    }
+
+    public void JoinRoomButton()
     {
         Debug.Log("Baðlanýyor...");
 
@@ -52,14 +55,21 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         Debug.Log("Odaya girildi");
         RoomCam.SetActive(false);
-        GameObject _player = PhotonNetwork.Instantiate(Player.name, SpawnPoint.position, Quaternion.identity);
-        _player.GetComponent<PlayerSetUp>().IsLocalPlayer();
-        Debug.Log("Spawn Atýldý");
+        SpawnPlayer();
     }
 
-    public void RespawnPlayer()
+    public void SpawnPlayer()
     {
         GameObject _player = PhotonNetwork.Instantiate(Player.name, SpawnPoint.position, Quaternion.identity);
         _player.GetComponent<PlayerSetUp>().IsLocalPlayer();
+        _player.GetComponent<Health>().isLocalPlayer = true;
+        Debug.Log("Spawn Atýldý");
+
+        _player.GetComponent<PhotonView>().RPC("SetNickName", RpcTarget.AllBuffered, nickname);
+    }
+
+    public void ChangeNickName(string _name)
+    {
+        nickname = _name;
     }
 }

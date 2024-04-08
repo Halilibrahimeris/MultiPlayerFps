@@ -1,17 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class RefreshAmmo : RefreshParent
-{
 
+public class MedKit : RefreshParent
+{
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player") && isActive)
-        {
-            other.GetComponent<AmmoRefresh>().Refresh(120);
-            gameObject.SetActive(false);
-            isActive = false;
-        }
+
         if (other.CompareTag("Player") /*&& !isAmmo*/ && isActive)
         {
             var _player = other.GetComponent<Health>();
@@ -21,5 +16,4 @@ public class RefreshAmmo : RefreshParent
             isActive = false;
         }
     }
-
 }

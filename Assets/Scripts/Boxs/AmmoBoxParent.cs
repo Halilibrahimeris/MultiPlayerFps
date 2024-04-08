@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class AmmoBoxParent : MonoBehaviour
 {
-    RefreshAmmo child;
+    RefreshParent child;
     private float refreshTime = 10f;
     private float Timer;
     void Start()
     {
-        child = GetComponentInChildren<RefreshAmmo>();
+        child = GetComponentInChildren<RefreshParent>();
     }
 
     // Update is called once per frame
@@ -20,8 +20,7 @@ public class AmmoBoxParent : MonoBehaviour
             Timer += Time.deltaTime;
             if(Timer >= refreshTime)
             {
-                child.isActive = true;
-                child.gameObject.SetActive(true);
+                child.SetActiveChild();
                 Timer = 0f;
             }
         }
