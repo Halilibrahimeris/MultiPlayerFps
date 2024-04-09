@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 public class RefreshParent : MonoBehaviour
 {
-    public bool isActive;
+    [HideInInspector]public bool isActive;
     private Vector3 MovePoint;
     [SerializeField] private float rotationSpeed;
 

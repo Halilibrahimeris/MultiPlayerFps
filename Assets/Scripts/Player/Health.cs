@@ -18,10 +18,11 @@ public class Health : MonoBehaviour
         HP -= Damage;
         if(HP<= 0)
         {
+            PhotonNetwork.Destroy(gameObject);
+
             if (isLocalPlayer)
                 RoomManager.instance.SpawnPlayer();
 
-            Destroy(gameObject);
         }
         HealthText.text = HP.ToString();
     }

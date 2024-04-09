@@ -4,11 +4,12 @@ using UnityEngine;
 using Photon.Pun;
 public class Bullet : MonoBehaviour
 {
+    [HideInInspector]public float damage;
+
     private void Start()
     {
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 2f);
     }
-    [HideInInspector]public float damage;
     private void OnCollisionEnter(Collision collision)//çarptýþtýðý durumu kontrol eden fonksiyon
     {
         IDamageable damageObject = collision.gameObject.GetComponent<IDamageable>();
