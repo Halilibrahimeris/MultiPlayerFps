@@ -26,18 +26,33 @@ public class CharacterMovement : MonoBehaviour
     //Dash & Movement
     public Vector3 moveDir;
 
-    // Start is called before the first frame update
+    //Crouch
+    CapsuleCollider capsuleCollider;
+    bool isCrouching = false;
+    float normalHeight = 1f;
+    float crouchHeight = 0.5f;
+    [SerializeField] GameObject body;
+
+
     void Start()
     {
+        capsuleCollider = GetComponent<CapsuleCollider>();
         controller = GetComponent<CharacterController>();
 
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(PublicVariable.instance.chat.inChat != true)
+            Movement();
+        if(isGrounded != true)
+            velocity.y += gravity * Time.deltaTime;
+    }
 
+    void Movement()
+    {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
@@ -60,13 +75,28 @@ public class CharacterMovement : MonoBehaviour
             velocity.y = -1f;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
 
         }
-
-        velocity.y += gravity * Time.deltaTime;
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            if (isCrouching)
+            {
+                body.transform.localScale = new Vector3(body.transform.localScale.x, normalHeight, body.transform.localScale.z);
+                capsuleCollider.height = 2f;
+                controller.height = 2f;
+                isCrouching = false;
+            }
+            else
+            {
+                body.transform.localScale = new Vector3(body.transform.localScale.x, crouchHeight, body.transform.localScale.z);
+                capsuleCollider.height = 1f;
+                controller.height = 1f;
+                isCrouching = true;
+            }
+        }
         controller.Move(velocity * Time.deltaTime);
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using TMPro;
+using Photon.Pun.UtilityScripts;
 public class Weapon : MonoBehaviour
 {
     public Camera PlayerCamera;
@@ -150,6 +151,8 @@ public class Weapon : MonoBehaviour
         var bullet = PhotonNetwork.Instantiate(BulletsPrefab.name, BulletSpawn.position, Quaternion.identity);
 
         bullet.GetComponent<Bullet>().damage = BulletDamage;
+
+        bullet.GetComponent<Bullet>().parent = this;
 
         bullet.transform.forward = shootingDirection;
 

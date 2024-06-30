@@ -7,6 +7,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 {
     public static RoomManager instance;
 
+    public GameObject Chat;
     public GameObject Player;
 
     [Space]
@@ -55,6 +56,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         Debug.Log("Odaya girildi");
         RoomCam.SetActive(false);
+        Chat.SetActive(true);
         SpawnPlayer();
     }
 
@@ -68,6 +70,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
         Debug.Log("Spawn Atýldý");
 
         _player.GetComponent<PhotonView>().RPC("SetNickName", RpcTarget.AllBuffered, nickname);
+
+        PhotonNetwork.LocalPlayer.NickName = nickname;
     }
 
     public void ChangeNickName(string _name)

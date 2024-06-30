@@ -2,16 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 public class Bullet : MonoBehaviour
 {
     [HideInInspector]public float damage;
+    [HideInInspector]public Weapon parent;
 
     private void Start()
     {
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 2f); 
     }
     private void OnCollisionEnter(Collision collision)//çarptýþtýðý durumu kontrol eden fonksiyon
     {
+        if (collision.transform.gameObject.TryGetComponent<Health>(out Health hp))
+        {
+            Debug.Log(hp.name + "anlýk caný : " + hp.HP);
+            if (damage >= hp.hpScore)
+                PhotonNetwork.LocalPlayer.AddScore(1);
+            collision.transform.gameObject.GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.Others, damage);
+            hp.TakeDamageForScore(damage);
+
+            Debug.Log("Enemy Damage Yedi");
+            Destroy(gameObject);
+        }
         IDamageable damageObject = collision.gameObject.GetComponent<IDamageable>();
         if(damageObject != null)
         {
@@ -19,16 +32,7 @@ public class Bullet : MonoBehaviour
             CreateBulletImpactEffect(collision, typ);
             Destroy(gameObject);
         }
-        if (collision.transform.gameObject.GetComponent<Health>())
-        {
-
-            if (collision.gameObject.TryGetComponent<PhotonView>(out PhotonView player))
-            {
-                player.RPC("TakeDamage", RpcTarget.Others, damage);
-                Debug.Log("Enemy Damage Yedi");
-                Destroy(gameObject);
-            }
-        }
+        
     }
 
     private void CreateBulletImpactEffect(Collision ObjectWeHit, IDamageable.Type type)//Merminin denk geldiði yere mermi izi efekti ekleniyor

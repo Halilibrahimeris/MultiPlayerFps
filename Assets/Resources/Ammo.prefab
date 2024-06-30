@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  parent: {fileID: 0}
 --- !u!54 &4067749257989308793
 Rigidbody:
   m_ObjectHideFlags: 0
